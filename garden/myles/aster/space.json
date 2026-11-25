@@ -1,0 +1,13 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.aster.space",
+  "defs": {
+    "main": {
+      "type": "space",
+      "description": "Personal data used by Aster.",
+      "key": "literal:self",
+      "collections": ["garden.myles.aster.chart"],
+      "title": "aster.myles.garden"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "@myles-garden/lexicons",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AT Protocol Lexicon schemas for records published by myles' garden projects.",
+  "homepage": "https://github.com/myles/myles-garden-lexicons#readme",
+  "bugs": {
+    "url": "https://github.com/myles/myles-garden-lexicons/issues"
+  },
+  "license": "MIT",
+  "author": "Myles Braithwaite <myles@myles.garden> (https://myles.garden)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/myles/myles-garden-lexicons.git"
+  },
+  "scripts": {
+    "format": "oxfmt -c ./node_modules/@mylesb/oxfmt-config/oxfmtrc.json",
+    "format:check": "oxfmt --check -c ./node_modules/@mylesb/oxfmt-config/oxfmtrc.json"
+  },
+  "devDependencies": {
+    "@mylesb/oxfmt-config": "^1.0.0",
+    "oxfmt": "^0.80.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

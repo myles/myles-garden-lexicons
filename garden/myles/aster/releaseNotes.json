@@ -1,0 +1,43 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.aster.releaseNotes",
+  "defs": {
+    "main": {
+      "type": "object",
+      "description": "One Aster release's notes, as a site.standard.document's content.",
+      "required": ["version", "releaseDate", "sections"],
+      "properties": {
+        "version": { "type": "string", "maxLength": 64 },
+        "releaseDate": {
+          "type": "string",
+          "description": "The calendar date of the release, as YYYY-MM-DD.",
+          "maxLength": 10
+        },
+        "sections": {
+          "type": "array",
+          "items": { "type": "ref", "ref": "#section" }
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": ["heading", "items"],
+      "properties": {
+        "heading": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": { "type": "ref", "ref": "#item" }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "scope": { "type": "string" },
+        "text": { "type": "string" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    }
+  }
+}
