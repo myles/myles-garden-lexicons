@@ -4,7 +4,7 @@
   "defs": {
     "main": {
       "type": "record",
-      "description": "One person's meaning for one card. Must include upright, reversed, or both.",
+      "description": "One person's meaning for one card. Must include upright, reversed, or both. A set should hold one interpretation per cardId and deck; if it holds more, the latest createdAt wins.",
       "key": "tid",
       "record": {
         "type": "object",
