@@ -33,7 +33,9 @@ jobs:
         run: npm run format:check
 
       - name: Check JSON syntax
-        run: find garden -name '*.json' -print0 | xargs -0 -n1 jq empty
+        run: |
+          find garden examples -name '*.json' -print0 \
+            | xargs -0 -n1 jq empty
 
       # A lexicon's `id` must match its path, so
       # garden/myles/aster/chart.json declares garden.myles.aster.chart.
