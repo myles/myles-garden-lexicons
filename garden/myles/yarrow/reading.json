@@ -38,6 +38,7 @@
           },
           "cards": {
             "type": "array",
+            "description": "In draw order. Position ids must be unique within the reading.",
             "minLength": 1,
             "maxLength": 78,
             "items": { "type": "ref", "ref": "#drawnCard" }
@@ -50,8 +51,14 @@
           },
           "textAuthor": {
             "type": "string",
-            "description": "Who wrote the text: the reading's author, or a model.",
+            "description": "Who wrote the text: the reading's author, or a model. Set only when text is present.",
             "knownValues": ["reader", "model"]
+          },
+          "textModel": {
+            "type": "string",
+            "maxLength": 640,
+            "maxGraphemes": 64,
+            "description": "The model that wrote the text, e.g. 'claude-opus-5-5'. Set only when textAuthor is model."
           },
           "aiPreferences": {
             "type": "ref",

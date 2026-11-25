@@ -18,19 +18,20 @@
           },
           "tradition": {
             "type": "string",
-            "description": "The deck's lineage. Informational only.",
-            "knownValues": ["rws", "thoth", "marseille", "other"]
+            "description": "The deck's lineage. Informational only. Omit, or use any value, for other lineages.",
+            "knownValues": ["rws", "thoth", "marseille"]
           },
           "license": { "type": "string", "maxLength": 640, "maxGraphemes": 64 },
           "cardBack": { "type": "ref", "ref": "#image" },
           "suits": {
             "type": "array",
-            "description": "Suits in this deck. Omit to use the four standard suits.",
+            "description": "Suits in this deck. Omit to use the four standard suits. Ids must be unique within the deck.",
             "maxLength": 12,
             "items": { "type": "ref", "ref": "#suit" }
           },
           "cards": {
             "type": "array",
+            "description": "Ids must be unique within the deck.",
             "minLength": 1,
             "maxLength": 200,
             "items": { "type": "ref", "ref": "#card" }
