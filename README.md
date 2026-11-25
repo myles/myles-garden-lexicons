@@ -12,6 +12,8 @@ Lexicon JSON documents live under `garden/myles/<namespace>/`.
 | --------------------------------------------- | ------------------------- | ----------------------------------- |
 | [`garden.myles.aster`](./garden/myles/aster/) | Natal chart (birth chart) | [Aster](https://aster.myles.garden) |
 
+Example records live under [`examples/`](./examples/), one folder per namespace. CI validates them against the lexicons on each branch.
+
 ## See also
 
 - [Lexicon spec](https://atproto.com/specs/lexicon): the AT Protocol schema language

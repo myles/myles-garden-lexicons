@@ -1,0 +1,23 @@
+{
+  "$type": "garden.myles.aster.chart",
+  "aiPreferences": {
+    "inference": {
+      "allow": true,
+      "updatedAt": "2026-11-23T16:56:44.812Z"
+    },
+    "training": {
+      "allow": false,
+      "updatedAt": "2026-11-23T16:56:44.812Z"
+    }
+  },
+  "bornAt": "2026-08-17T21:29:52Z",
+  "houseSystem": "placidus",
+  "isBirthTimeKnown": true,
+  "location": {
+    "$type": "community.lexicon.location.geo",
+    "latitude": "43.6532",
+    "longitude": "-79.3832"
+  },
+  "timeZone": "America/Toronto",
+  "updatedAt": "2026-11-23T16:56:44.812Z"
+}
