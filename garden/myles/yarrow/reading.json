@@ -8,7 +8,7 @@
       "key": "tid",
       "record": {
         "type": "object",
-        "required": ["spread", "deck", "cards", "createdAt"],
+        "required": ["spread", "spreadName", "deck", "cards", "createdAt"],
         "properties": {
           "querent": {
             "type": "string",
@@ -18,17 +18,23 @@
           "spread": {
             "type": "ref",
             "ref": "com.atproto.repo.strongRef",
-            "description": "The exact spread version used."
+            "description": "The exact spread version used. Repos don't keep old versions, so this may stop resolving once the spread is edited. Render from spreadName and cards instead."
+          },
+          "spreadName": {
+            "type": "string",
+            "maxLength": 640,
+            "maxGraphemes": 64,
+            "description": "The spread's name when the reading was pulled."
           },
           "deck": {
             "type": "ref",
             "ref": "com.atproto.repo.strongRef",
-            "description": "The exact deck version used."
+            "description": "The exact deck version used. May stop resolving once the deck is edited; card names are copied into cards, artwork is not."
           },
           "interpretationSet": {
             "type": "ref",
             "ref": "com.atproto.repo.strongRef",
-            "description": "The exact interpretation set version used, if any."
+            "description": "The exact interpretation set version used, if any. Meanings are not copied, so they may change after the reading."
           },
           "cards": {
             "type": "array",
@@ -47,20 +53,31 @@
             "description": "Who wrote the text: the reading's author, or a model.",
             "knownValues": ["reader", "model"]
           },
+          "aiPreferences": {
+            "type": "ref",
+            "ref": "community.lexicon.preference.ai#preferenceSet",
+            "description": "Reading-specific AI preferences. Yarrow treats omitted preferences, including inference, as denied. Inference covers sending the reading to an AI model, including a hosted LLM, to generate text. When reading for a querent, set these only with the querent's agreement."
+          },
           "createdAt": { "type": "string", "format": "datetime" }
         }
       }
     },
     "drawnCard": {
       "type": "object",
-      "required": ["position", "cardId", "orientation"],
+      "required": ["position", "cardId", "cardName", "orientation"],
       "properties": {
         "position": {
-          "type": "string",
-          "maxLength": 64,
-          "description": "A position id from the spread."
+          "type": "ref",
+          "ref": "garden.myles.yarrow.spread#position",
+          "description": "A copy of the spread's position when the reading was pulled."
         },
         "cardId": { "type": "ref", "ref": "garden.myles.yarrow.defs#cardId" },
+        "cardName": {
+          "type": "string",
+          "maxLength": 640,
+          "maxGraphemes": 64,
+          "description": "The card's display name in the deck when the reading was pulled."
+        },
         "orientation": {
           "type": "string",
           "knownValues": ["upright", "reversed"]
