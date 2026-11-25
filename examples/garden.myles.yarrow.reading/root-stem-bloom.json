@@ -16,7 +16,7 @@
   "cards": [
     {
       "position": {
-        "id": "root",
+        "positionId": "root",
         "name": "Root",
         "description": "DRAFT: what grounds and feeds the situation.",
         "layout": { "x": 7, "y": 12 }
@@ -27,7 +27,7 @@
     },
     {
       "position": {
-        "id": "stem",
+        "positionId": "stem",
         "name": "Stem",
         "description": "DRAFT: what carries it now.",
         "layout": { "x": 7, "y": 7 }
@@ -38,7 +38,7 @@
     },
     {
       "position": {
-        "id": "bloom-1",
+        "positionId": "bloom-1",
         "name": "Bloom 1",
         "description": "DRAFT: one possible thing it could grow toward. The three blooms are alternatives, not a sequence.",
         "layout": { "x": 2, "y": 2 }
@@ -49,7 +49,7 @@
     },
     {
       "position": {
-        "id": "bloom-2",
+        "positionId": "bloom-2",
         "name": "Bloom 2",
         "description": "DRAFT: one possible thing it could grow toward. The three blooms are alternatives, not a sequence.",
         "layout": { "x": 7, "y": 2 }
@@ -60,7 +60,7 @@
     },
     {
       "position": {
-        "id": "bloom-3",
+        "positionId": "bloom-3",
         "name": "Bloom 3",
         "description": "DRAFT: one possible thing it could grow toward. The three blooms are alternatives, not a sequence.",
         "layout": { "x": 12, "y": 2 }

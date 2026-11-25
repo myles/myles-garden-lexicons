@@ -45,7 +45,7 @@
           },
           "text": {
             "type": "string",
-            "maxLength": 30000,
+            "maxLength": 20000,
             "maxGraphemes": 3000,
             "description": "The written reading."
           },

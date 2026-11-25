@@ -29,9 +29,9 @@
     },
     "position": {
       "type": "object",
-      "required": ["id", "name", "layout"],
+      "required": ["positionId", "name", "layout"],
       "properties": {
-        "id": {
+        "positionId": {
           "type": "string",
           "maxLength": 64,
           "description": "Stable id, referenced by readings."

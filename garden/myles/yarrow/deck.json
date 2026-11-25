@@ -47,9 +47,9 @@
     },
     "card": {
       "type": "object",
-      "required": ["id", "name"],
+      "required": ["cardId", "name"],
       "properties": {
-        "id": { "type": "ref", "ref": "garden.myles.yarrow.defs#cardId" },
+        "cardId": { "type": "ref", "ref": "garden.myles.yarrow.defs#cardId" },
         "name": {
           "type": "string",
           "maxLength": 640,
@@ -88,9 +88,9 @@
     },
     "suit": {
       "type": "object",
-      "required": ["id", "name"],
+      "required": ["suitId", "name"],
       "properties": {
-        "id": {
+        "suitId": {
           "type": "string",
           "maxLength": 64,
           "knownValues": ["wands", "cups", "swords", "pentacles"]
