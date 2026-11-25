@@ -1,0 +1,65 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.yarrow.spread",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A spread layout: its positions, what each one asks, and where each card sits.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["name", "positions", "createdAt"],
+        "properties": {
+          "name": { "type": "string", "maxLength": 640, "maxGraphemes": 64 },
+          "description": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300
+          },
+          "positions": {
+            "type": "array",
+            "description": "In draw order. Ids must be unique within the spread.",
+            "minLength": 1,
+            "maxLength": 78,
+            "items": { "type": "ref", "ref": "#position" }
+          },
+          "createdAt": { "type": "string", "format": "datetime" }
+        }
+      }
+    },
+    "position": {
+      "type": "object",
+      "required": ["id", "name", "layout"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 64,
+          "description": "Stable id, referenced by readings."
+        },
+        "name": { "type": "string", "maxLength": 640, "maxGraphemes": 64 },
+        "description": {
+          "type": "string",
+          "maxLength": 3000,
+          "maxGraphemes": 300,
+          "description": "What this position asks of its card. Shown to readers and passed to the model."
+        },
+        "layout": { "type": "ref", "ref": "#layout" }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "description": "Where the centre of a card sits. x is in quarter card widths, y in quarter card heights, so a card is 4 units wide and 4 tall in either deck shape. Positions may share a centre to overlap, e.g. the crossing card in a Celtic Cross.",
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "integer", "minimum": 0, "maximum": 80 },
+        "y": { "type": "integer", "minimum": 0, "maximum": 80 },
+        "rotation": {
+          "type": "integer",
+          "description": "Degrees, around the card's centre. Separate from a card being drawn reversed.",
+          "enum": [0, 90],
+          "default": 0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.yarrow.deck",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A tarot deck: its artwork, structure and cards.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["name", "cardBack", "cards", "createdAt"],
+        "properties": {
+          "name": { "type": "string", "maxLength": 640, "maxGraphemes": 64 },
+          "description": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300
+          },
+          "tradition": {
+            "type": "string",
+            "description": "The deck's lineage. Informational only.",
+            "knownValues": ["rws", "thoth", "marseille", "other"]
+          },
+          "license": { "type": "string", "maxLength": 640, "maxGraphemes": 64 },
+          "cardBack": { "type": "ref", "ref": "#image" },
+          "suits": {
+            "type": "array",
+            "description": "Suits in this deck. Omit to use the four standard suits.",
+            "maxLength": 12,
+            "items": { "type": "ref", "ref": "#suit" }
+          },
+          "cards": {
+            "type": "array",
+            "minLength": 1,
+            "maxLength": 200,
+            "items": { "type": "ref", "ref": "#card" }
+          },
+          "interpretations": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "The deck author's interpretationSet. Used as a fallback, and the only source of meanings for custom cards."
+          },
+          "createdAt": { "type": "string", "format": "datetime" }
+        }
+      }
+    },
+    "card": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "ref", "ref": "garden.myles.yarrow.defs#cardId" },
+        "name": {
+          "type": "string",
+          "maxLength": 640,
+          "maxGraphemes": 64,
+          "description": "Display name in this deck, e.g. 'Lust' for strength in a Thoth deck."
+        },
+        "arcana": { "type": "string", "knownValues": ["major", "minor"] },
+        "suit": {
+          "type": "string",
+          "maxLength": 64,
+          "description": "A standard suit id, or the id of a suit declared in this deck."
+        },
+        "rank": {
+          "type": "string",
+          "maxLength": 64,
+          "knownValues": [
+            "ace",
+            "two",
+            "three",
+            "four",
+            "five",
+            "six",
+            "seven",
+            "eight",
+            "nine",
+            "ten",
+            "page",
+            "knight",
+            "queen",
+            "king"
+          ]
+        },
+        "number": { "type": "integer", "minimum": 0 },
+        "image": { "type": "ref", "ref": "#image" }
+      }
+    },
+    "suit": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 64,
+          "knownValues": ["wands", "cups", "swords", "pentacles"]
+        },
+        "name": { "type": "string", "maxLength": 640, "maxGraphemes": 64 },
+        "element": {
+          "type": "string",
+          "maxLength": 64,
+          "knownValues": ["fire", "water", "air", "earth"]
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "required": ["image", "alt"],
+      "properties": {
+        "image": {
+          "type": "blob",
+          "accept": ["image/png", "image/jpeg", "image/webp"],
+          "maxSize": 1000000
+        },
+        "alt": {
+          "type": "string",
+          "maxLength": 10000,
+          "maxGraphemes": 1000,
+          "description": "Alt text describing the artwork."
+        },
+        "aspectRatio": { "type": "ref", "ref": "#aspectRatio" }
+      }
+    },
+    "aspectRatio": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}

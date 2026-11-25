@@ -1,0 +1,38 @@
+{
+  "$type": "garden.myles.yarrow.spread",
+  "name": "Root, Stem, Bloom",
+  "description": "Yarrow's five-card spread.",
+  "positions": [
+    {
+      "id": "root",
+      "name": "Root",
+      "description": "DRAFT: what grounds and feeds the situation.",
+      "layout": { "x": 7, "y": 12 }
+    },
+    {
+      "id": "stem",
+      "name": "Stem",
+      "description": "DRAFT: what carries it now.",
+      "layout": { "x": 7, "y": 7 }
+    },
+    {
+      "id": "bloom-1",
+      "name": "Bloom 1",
+      "description": "DRAFT: one possible thing it could grow toward. The three blooms are alternatives, not a sequence.",
+      "layout": { "x": 2, "y": 2 }
+    },
+    {
+      "id": "bloom-2",
+      "name": "Bloom 2",
+      "description": "DRAFT: one possible thing it could grow toward. The three blooms are alternatives, not a sequence.",
+      "layout": { "x": 7, "y": 2 }
+    },
+    {
+      "id": "bloom-3",
+      "name": "Bloom 3",
+      "description": "DRAFT: one possible thing it could grow toward. The three blooms are alternatives, not a sequence.",
+      "layout": { "x": 12, "y": 2 }
+    }
+  ],
+  "createdAt": "2026-11-14T20:30:00.000Z"
+}
