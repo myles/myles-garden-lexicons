@@ -69,6 +69,20 @@ jobs:
       - name: Lint
         run: goat lex lint garden
 
+      # Example records must still match the schemas on this branch.
+      # Refs outside garden/, e.g. community.lexicon.*, resolve over
+      # the network.
+      - name: Validate examples
+        run: |
+          status=0
+          while IFS= read -r -d '' file; do
+            if ! goat lex validate -c garden "$file"; then
+              echo "::error file=$file::doesn't match its lexicon"
+              status=1
+            fi
+          done < <(find examples -name '*.json' -print0)
+          exit $status
+
       # Compares against the published schemas, which are what's on main.
       - name: Check for breaking changes
         run: goat lex breaking garden
