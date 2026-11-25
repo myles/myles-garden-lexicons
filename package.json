@@ -14,8 +14,17 @@
     "url": "git+https://github.com/myles/myles-garden-lexicons.git"
   },
   "scripts": {
+    "check": "npm run format:check && npm run check:json && npm run check:ids && npm run test && npm run lint && npm run validate",
+    "check:all": "npm run check && npm run check:breaking && npm run check:dns",
+    "check:breaking": "scripts/goat.sh lex breaking garden",
+    "check:dns": "scripts/goat.sh lex check-dns garden",
+    "check:ids": "scripts/check-ids.sh",
+    "check:json": "find garden examples -name '*.json' -print0 | xargs -0 -n1 jq empty",
     "format": "oxfmt -c ./node_modules/@mylesb/oxfmt-config/oxfmtrc.json",
-    "format:check": "oxfmt --check -c ./node_modules/@mylesb/oxfmt-config/oxfmtrc.json"
+    "format:check": "oxfmt --check -c ./node_modules/@mylesb/oxfmt-config/oxfmtrc.json",
+    "lint": "scripts/goat.sh lex lint garden",
+    "test": "scripts/check-ids.test.sh",
+    "validate": "scripts/validate-examples.sh"
   },
   "devDependencies": {
     "@mylesb/oxfmt-config": "^1.0.0",

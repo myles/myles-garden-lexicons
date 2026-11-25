@@ -14,6 +14,15 @@ Lexicon JSON documents live under `garden/myles/<namespace>/`.
 
 Example records live under [`examples/`](./examples/), one folder per namespace. CI validates them against the lexicons on each branch.
 
+## Checks
+
+CI runs the same npm scripts you can run locally. You need Node, `jq`, and Go; the first goat command builds a pinned goat into `.bin/`.
+
+| Script              | Runs                                                                  |
+| ------------------- | --------------------------------------------------------------------- |
+| `npm run check`     | Formatting, JSON syntax, ids, script tests, lint, examples            |
+| `npm run check:all` | `check`, plus breaking-change and DNS checks against what's published |
+
 ## See also
 
 - [Lexicon spec](https://atproto.com/specs/lexicon): the AT Protocol schema language
