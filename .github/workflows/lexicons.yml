@@ -10,11 +10,6 @@ permissions:
 
 env:
   LEXICONS_DIR: .
-  # goat 0.2.9 can't parse `"type": "space"`; indigo added it on
-  # 2026-11-24. Build goat against that indigo commit until a goat
-  # release ships it, then replace this with a plain `go install`.
-  GOAT_REF: beec4d7868e0b221ff81b5d042fee336aa31ec3a
-  INDIGO_REF: 6017e7ee0a79
 
 jobs:
   validate:
@@ -33,60 +28,32 @@ jobs:
         run: npm run format:check
 
       - name: Check JSON syntax
-        run: |
-          find garden examples -name '*.json' -print0 \
-            | xargs -0 -n1 jq empty
+        run: npm run check:json
 
-      # A lexicon's `id` must match its path, so
-      # garden/myles/aster/chart.json declares garden.myles.aster.chart.
       - name: Check ids match paths
-        run: |
-          status=0
-          while IFS= read -r -d '' file; do
-            expected="$(echo "${file%.json}" | tr / .)"
-            actual="$(jq -r .id "$file")"
-            if [ "$actual" != "$expected" ]; then
-              echo "::error file=$file::id is '$actual', expected '$expected'"
-              status=1
-            fi
-          done < <(find garden -name '*.json' -print0)
-          exit $status
+        run: npm run check:ids
+
+      - name: Test scripts
+        run: npm test
 
       - uses: actions/setup-go@v6
         with:
           go-version: stable
 
-      - name: Install goat
-        run: |
-          git clone --quiet https://github.com/bluesky-social/goat \
-            "$RUNNER_TEMP/goat-src"
-          cd "$RUNNER_TEMP/goat-src"
-          git checkout --quiet "$GOAT_REF"
-          go get "github.com/bluesky-social/indigo@$INDIGO_REF"
-          go build -o "$RUNNER_TEMP/bin/goat" .
-          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
+      # Builds the pinned goat now, so later steps time only themselves.
+      - name: Build goat
+        run: scripts/goat.sh --version
 
       - name: Lint
-        run: goat lex lint garden
+        run: npm run lint
 
-      # Example records must still match the schemas on this branch.
-      # Refs outside garden/, e.g. community.lexicon.*, resolve over
-      # the network.
       - name: Validate examples
-        run: |
-          status=0
-          while IFS= read -r -d '' file; do
-            if ! goat lex validate -c garden "$file"; then
-              echo "::error file=$file::doesn't match its lexicon"
-              status=1
-            fi
-          done < <(find examples -name '*.json' -print0)
-          exit $status
+        run: npm run validate
 
       # Compares against the published schemas, which are what's on main.
       - name: Check for breaking changes
-        run: goat lex breaking garden
+        run: npm run check:breaking
 
       # Everything on main must resolve, so new namespaces need DNS first.
       - name: Check DNS resolution
-        run: goat lex check-dns garden
+        run: npm run check:dns
