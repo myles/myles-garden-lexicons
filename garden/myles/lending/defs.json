@@ -9,6 +9,7 @@
       "knownValues": [
         "garden.myles.lending.defs#approved",
         "garden.myles.lending.defs#declined",
+        "garden.myles.lending.defs#cancelled",
         "garden.myles.lending.defs#active",
         "garden.myles.lending.defs#returned",
         "garden.myles.lending.defs#lost"
@@ -21,6 +22,10 @@
     "declined": {
       "type": "token",
       "description": "The lender has turned down the request. The item won't be lent."
+    },
+    "cancelled": {
+      "type": "token",
+      "description": "Called off before the item was handed over, e.g. the borrower withdrew their request."
     },
     "active": {
       "type": "token",
