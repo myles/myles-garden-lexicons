@@ -1,0 +1,95 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.yarrow.reading",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A pulled spread, kept as a snapshot. Stored in a space: a private one for your own readings, or one shared with the querent when reading for someone else.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["spread", "spreadName", "deck", "cards", "createdAt"],
+        "properties": {
+          "querent": {
+            "type": "string",
+            "format": "did",
+            "description": "Who the reading is for. Omit when the author read for themselves."
+          },
+          "spread": {
+            "type": "ref",
+            "ref": "com.atproto.repo.strongRef",
+            "description": "The exact spread version used. Repos don't keep old versions, so this may stop resolving once the spread is edited. Render from spreadName and cards instead."
+          },
+          "spreadName": {
+            "type": "string",
+            "maxLength": 640,
+            "maxGraphemes": 64,
+            "description": "The spread's name when the reading was pulled."
+          },
+          "deck": {
+            "type": "ref",
+            "ref": "com.atproto.repo.strongRef",
+            "description": "The exact deck version used. May stop resolving once the deck is edited; card names are copied into cards, artwork is not."
+          },
+          "interpretationSet": {
+            "type": "ref",
+            "ref": "com.atproto.repo.strongRef",
+            "description": "The exact interpretation set version used, if any. Meanings are not copied, so they may change after the reading."
+          },
+          "cards": {
+            "type": "array",
+            "description": "In draw order. Position ids must be unique within the reading.",
+            "minLength": 1,
+            "maxLength": 78,
+            "items": { "type": "ref", "ref": "#drawnCard" }
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 20000,
+            "maxGraphemes": 3000,
+            "description": "The written reading."
+          },
+          "textAuthor": {
+            "type": "string",
+            "description": "Who wrote the text: the reading's author, or a model. Set only when text is present.",
+            "knownValues": ["reader", "model"]
+          },
+          "textModel": {
+            "type": "string",
+            "maxLength": 640,
+            "maxGraphemes": 64,
+            "description": "The model that wrote the text, e.g. 'claude-opus-5-5'. Set only when textAuthor is model."
+          },
+          "aiPreferences": {
+            "type": "ref",
+            "ref": "community.lexicon.preference.ai#preferenceSet",
+            "description": "Reading-specific AI preferences. Yarrow treats omitted preferences, including inference, as denied. Inference covers sending the reading to an AI model, including a hosted LLM, to generate text. When reading for a querent, set these only with the querent's agreement."
+          },
+          "createdAt": { "type": "string", "format": "datetime" }
+        }
+      }
+    },
+    "drawnCard": {
+      "type": "object",
+      "required": ["position", "cardId", "cardName", "orientation"],
+      "properties": {
+        "position": {
+          "type": "ref",
+          "ref": "garden.myles.yarrow.spread#position",
+          "description": "A copy of the spread's position when the reading was pulled."
+        },
+        "cardId": { "type": "ref", "ref": "garden.myles.yarrow.defs#cardId" },
+        "cardName": {
+          "type": "string",
+          "maxLength": 640,
+          "maxGraphemes": 64,
+          "description": "The card's display name in the deck when the reading was pulled."
+        },
+        "orientation": {
+          "type": "string",
+          "knownValues": ["upright", "reversed"]
+        }
+      }
+    }
+  }
+}

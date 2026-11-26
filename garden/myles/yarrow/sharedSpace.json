@@ -1,0 +1,16 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.yarrow.sharedSpace",
+  "defs": {
+    "main": {
+      "type": "space",
+      "description": "Data shared between a reader and one querent: readings done for the querent, and the querent's reflections on them. One space per querent.",
+      "key": "tid",
+      "collections": [
+        "garden.myles.yarrow.reading",
+        "garden.myles.yarrow.reflection"
+      ],
+      "title": "yarrow.myles.garden (shared)"
+    }
+  }
+}

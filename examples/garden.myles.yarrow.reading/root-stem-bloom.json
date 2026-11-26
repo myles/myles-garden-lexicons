@@ -1,0 +1,81 @@
+{
+  "$type": "garden.myles.yarrow.reading",
+  "spread": {
+    "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/garden.myles.yarrow.spread/3lbxjxkv2cq2c",
+    "cid": "bafyreieqtable2o64cjtq7rgy3d2zzrw6gaovqu7ldd5qae3mn6exk7rzy"
+  },
+  "spreadName": "Root, Stem, Bloom",
+  "deck": {
+    "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/garden.myles.yarrow.deck/3lbxjwpm4kc2c",
+    "cid": "bafyreigygazfsbwd2vak4im6nk5a6jb5klgxbd7ou2bvli7wh53k76g2gm"
+  },
+  "interpretationSet": {
+    "uri": "at://did:plc:aaaaaaaaaaaaaaaaaaaaaaaa/garden.myles.yarrow.interpretationSet/3lbxjwqz7as2c",
+    "cid": "bafyreido4dvusd7ygiibz6bkhu4hynpstzbdbptynf4pplhz5ai75p3hem"
+  },
+  "cards": [
+    {
+      "position": {
+        "positionId": "root",
+        "name": "Root",
+        "description": "DRAFT: what grounds and feeds the situation.",
+        "layout": { "x": 7, "y": 12 }
+      },
+      "cardId": "hermit",
+      "cardName": "The Hermit",
+      "orientation": "upright"
+    },
+    {
+      "position": {
+        "positionId": "stem",
+        "name": "Stem",
+        "description": "DRAFT: what carries it now.",
+        "layout": { "x": 7, "y": 7 }
+      },
+      "cardId": "eight-of-pentacles",
+      "cardName": "Eight of Pentacles",
+      "orientation": "upright"
+    },
+    {
+      "position": {
+        "positionId": "bloom-1",
+        "name": "Bloom 1",
+        "description": "DRAFT: one possible thing it could grow toward. The three blooms are alternatives, not a sequence.",
+        "layout": { "x": 2, "y": 2 }
+      },
+      "cardId": "star",
+      "cardName": "The Star",
+      "orientation": "upright"
+    },
+    {
+      "position": {
+        "positionId": "bloom-2",
+        "name": "Bloom 2",
+        "description": "DRAFT: one possible thing it could grow toward. The three blooms are alternatives, not a sequence.",
+        "layout": { "x": 7, "y": 2 }
+      },
+      "cardId": "three-of-cups",
+      "cardName": "Three of Cups",
+      "orientation": "reversed"
+    },
+    {
+      "position": {
+        "positionId": "bloom-3",
+        "name": "Bloom 3",
+        "description": "DRAFT: one possible thing it could grow toward. The three blooms are alternatives, not a sequence.",
+        "layout": { "x": 12, "y": 2 }
+      },
+      "cardId": "ace-of-wands",
+      "cardName": "Ace of Wands",
+      "orientation": "upright"
+    }
+  ],
+  "text": "The Hermit at the root: this grew out of time spent alone, working things out. The Eight of Pentacles carries it now as steady, patient practice. Three ways it might bloom: The Star, a quiet renewal of hope; the Three of Cups reversed, the work pulling you away from friends; or the Ace of Wands, a spark that starts something new.",
+  "textAuthor": "model",
+  "textModel": "claude-opus-5-5",
+  "aiPreferences": {
+    "inference": { "allow": true, "updatedAt": "2026-11-20T19:00:00.000Z" },
+    "training": { "allow": false, "updatedAt": "2026-11-20T19:00:00.000Z" }
+  },
+  "createdAt": "2026-11-20T19:05:00.000Z"
+}

@@ -1,0 +1,16 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.yarrow.space",
+  "defs": {
+    "main": {
+      "type": "space",
+      "description": "Private data used by Yarrow: readings the author did for themselves, and their reflections on them.",
+      "key": "literal:self",
+      "collections": [
+        "garden.myles.yarrow.reading",
+        "garden.myles.yarrow.reflection"
+      ],
+      "title": "yarrow.myles.garden"
+    }
+  }
+}

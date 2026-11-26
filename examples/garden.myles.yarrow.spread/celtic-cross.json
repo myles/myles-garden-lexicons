@@ -1,0 +1,68 @@
+{
+  "$type": "garden.myles.yarrow.spread",
+  "name": "Celtic Cross",
+  "description": "The ten-card spread from A. E. Waite's Pictorial Key to the Tarot.",
+  "positions": [
+    {
+      "positionId": "cover",
+      "name": "Cover",
+      "description": "The situation as it stands.",
+      "layout": { "x": 8, "y": 10 }
+    },
+    {
+      "positionId": "crossing",
+      "name": "Crossing",
+      "description": "What opposes or complicates it.",
+      "layout": { "x": 8, "y": 10, "rotation": 90 }
+    },
+    {
+      "positionId": "crown",
+      "name": "Crown",
+      "description": "The aim, or the best that can come of it.",
+      "layout": { "x": 8, "y": 5 }
+    },
+    {
+      "positionId": "beneath",
+      "name": "Beneath",
+      "description": "The foundation underneath.",
+      "layout": { "x": 8, "y": 15 }
+    },
+    {
+      "positionId": "behind",
+      "name": "Behind",
+      "description": "What is passing away.",
+      "layout": { "x": 2, "y": 10 }
+    },
+    {
+      "positionId": "before",
+      "name": "Before",
+      "description": "What is coming in.",
+      "layout": { "x": 14, "y": 10 }
+    },
+    {
+      "positionId": "self",
+      "name": "Self",
+      "description": "The querent's own stance.",
+      "layout": { "x": 20, "y": 17 }
+    },
+    {
+      "positionId": "house",
+      "name": "House",
+      "description": "The people and surroundings involved.",
+      "layout": { "x": 20, "y": 12 }
+    },
+    {
+      "positionId": "hopes-and-fears",
+      "name": "Hopes and fears",
+      "description": "What is hoped for or dreaded.",
+      "layout": { "x": 20, "y": 7 }
+    },
+    {
+      "positionId": "outcome",
+      "name": "Outcome",
+      "description": "Where it is heading.",
+      "layout": { "x": 20, "y": 2 }
+    }
+  ],
+  "createdAt": "2026-11-14T20:30:00.000Z"
+}

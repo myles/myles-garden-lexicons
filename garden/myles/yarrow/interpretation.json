@@ -1,0 +1,37 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.yarrow.interpretation",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "One person's meaning for one card. Must include upright, reversed, or both. A set should hold one interpretation per cardId and deck; if it holds more, the latest createdAt wins.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["set", "cardId", "createdAt"],
+        "properties": {
+          "set": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "The interpretationSet this belongs to. Must be in the same repo."
+          },
+          "cardId": { "type": "ref", "ref": "garden.myles.yarrow.defs#cardId" },
+          "deck": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Required for custom card ids. Optional for standard ids, to tie a meaning to one deck's artwork."
+          },
+          "upright": {
+            "type": "ref",
+            "ref": "garden.myles.yarrow.defs#meaning"
+          },
+          "reversed": {
+            "type": "ref",
+            "ref": "garden.myles.yarrow.defs#meaning"
+          },
+          "createdAt": { "type": "string", "format": "datetime" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.yarrow.interpretationSet",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A named collection of interpretations, e.g. Yarrow's defaults or one person's readings. Can be partial.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["name", "createdAt"],
+        "properties": {
+          "name": { "type": "string", "maxLength": 640, "maxGraphemes": 64 },
+          "description": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300
+          },
+          "deck": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "Set when the whole set is written for one deck."
+          },
+          "createdAt": { "type": "string", "format": "datetime" }
+        }
+      }
+    }
+  }
+}
