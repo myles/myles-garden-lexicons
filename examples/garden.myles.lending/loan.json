@@ -1,0 +1,14 @@
+{
+  "$type": "garden.myles.lending.loan",
+  "borrower": "did:plc:7borrowerexample22222222",
+  "createdAt": "2026-11-22T09:15:30.051Z",
+  "dueAt": "2026-12-14T17:00:00.000Z",
+  "item": "at://did:plc:7lenderexample2222222222/garden.myles.lending.item/3m6qvjlrvhk2a",
+  "lentAt": "2026-11-23T17:00:00.000Z",
+  "request": {
+    "cid": "bafyreie5737gdxlw5i64vzichcalba3z2v5n6icifvx5xytvske7mr3hpm",
+    "uri": "at://did:plc:7borrowerexample22222222/garden.myles.lending.request/3m6rbx2kqtc2b"
+  },
+  "status": "garden.myles.lending.defs#active",
+  "updatedAt": "2026-11-23T17:02:48.660Z"
+}
