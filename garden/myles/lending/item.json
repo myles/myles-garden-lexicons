@@ -1,0 +1,69 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.lending.item",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "Something the owner has and is willing to lend: a physical copy of a book, a board game, a film, a tool. Written to the owner's repo.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["name", "kind", "createdAt"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 1000,
+            "maxGraphemes": 200,
+            "description": "Display name, e.g. the book's title. Stored here so a shelf can render without fetching the subject."
+          },
+          "kind": {
+            "type": "ref",
+            "ref": "garden.myles.lending.defs#itemKind"
+          },
+          "subject": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "AT-URI of the work this is a copy of, such as a book record. Optional for things with no record of their own."
+          },
+          "condition": {
+            "type": "ref",
+            "ref": "garden.myles.lending.defs#itemCondition"
+          },
+          "lendable": {
+            "type": "boolean",
+            "default": true,
+            "description": "Set to false to pause lending without deleting the item."
+          },
+          "loanDays": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 365,
+            "description": "Default loan length in days."
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300,
+            "description": "Anything a borrower should know, e.g. 'signed copy, please be gentle'."
+          },
+          "image": {
+            "type": "blob",
+            "accept": ["image/png", "image/jpeg", "image/webp"],
+            "maxSize": 1000000,
+            "description": "Photo of the item. Useful when there's no subject to take a cover from."
+          },
+          "imageAlt": {
+            "type": "string",
+            "maxLength": 10000,
+            "maxGraphemes": 1000,
+            "description": "Alt text for image."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime"
+          }
+        }
+      }
+    }
+  }
+}

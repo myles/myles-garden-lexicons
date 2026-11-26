@@ -1,0 +1,37 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.lending.request",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A request to borrow an item. Written to the borrower's repo.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["item", "lender", "createdAt"],
+        "properties": {
+          "item": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "AT-URI of the garden.myles.lending.item being requested."
+          },
+          "lender": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the person who owns the book."
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300,
+            "description": "Optional note to the lender."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.lending.loan",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "An approved loan of an item. Written to the lender's repo.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["item", "borrower", "status", "createdAt"],
+        "properties": {
+          "item": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "AT-URI of the garden.myles.lending.item being lent."
+          },
+          "borrower": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the person borrowing the book."
+          },
+          "request": {
+            "type": "ref",
+            "ref": "com.atproto.repo.strongRef",
+            "description": "The garden.myles.lending.request this loan answers, if any."
+          },
+          "status": {
+            "type": "ref",
+            "ref": "garden.myles.lending.defs#loanStatus"
+          },
+          "lentAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the book was handed over."
+          },
+          "dueAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the book should come back."
+          },
+          "returnedAt": {
+            "type": "string",
+            "format": "datetime"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime"
+          }
+        }
+      }
+    }
+  }
+}

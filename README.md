@@ -11,6 +11,7 @@ Lexicon JSON documents live under `garden/myles/<namespace>/`.
 | Namespace                                     | Covers                    | Used by                             |
 | --------------------------------------------- | ------------------------- | ----------------------------------- |
 | [`garden.myles.aster`](./garden/myles/aster/) | Natal chart (birth chart) | [Aster](https://aster.myles.garden) |
+| [`garden.myles.lending`](./garden/myles/lending/) | Tracking borrwed items | [lending](https://lending.myles.garden)
 
 Example records live under [`examples/`](./examples/), one folder per namespace. CI validates them against the lexicons on each branch.
 
