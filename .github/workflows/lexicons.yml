@@ -2,6 +2,8 @@ name: Lexicons
 
 on:
   pull_request:
+    # ready_for_review reruns the DNS check, which drafts skip.
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
 
@@ -55,5 +57,7 @@ jobs:
         run: npm run check:breaking
 
       # Everything on main must resolve, so new namespaces need DNS first.
+      # Skipped on draft PRs, where DNS may not be set up yet.
       - name: Check DNS resolution
+        if: github.event.pull_request.draft != true
         run: npm run check:dns
