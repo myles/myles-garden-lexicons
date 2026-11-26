@@ -18,7 +18,7 @@
           "borrower": {
             "type": "string",
             "format": "did",
-            "description": "DID of the person borrowing the book."
+            "description": "DID of the person borrowing the item."
           },
           "request": {
             "type": "ref",
@@ -32,12 +32,12 @@
           "lentAt": {
             "type": "string",
             "format": "datetime",
-            "description": "When the book was handed over."
+            "description": "When the item was handed over."
           },
           "dueAt": {
             "type": "string",
             "format": "datetime",
-            "description": "When the book should come back."
+            "description": "When the item should come back."
           },
           "returnedAt": {
             "type": "string",
@@ -46,6 +46,11 @@
           "createdAt": {
             "type": "string",
             "format": "datetime"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the loan last changed, e.g. its status."
           }
         }
       }

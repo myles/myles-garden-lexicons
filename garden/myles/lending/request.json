@@ -18,7 +18,7 @@
           "lender": {
             "type": "string",
             "format": "did",
-            "description": "DID of the person who owns the book."
+            "description": "DID of the person who owns the item."
           },
           "message": {
             "type": "string",

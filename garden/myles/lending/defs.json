@@ -15,19 +15,19 @@
     },
     "approved": {
       "type": "token",
-      "description": "The lender has agreed to the loan. The book hasn't been handed over yet."
+      "description": "The lender has agreed to the loan. The item hasn't been handed over yet."
     },
     "active": {
       "type": "token",
-      "description": "The book is with the borrower."
+      "description": "The item is with the borrower."
     },
     "returned": {
       "type": "token",
-      "description": "The book is back with the lender."
+      "description": "The item is back with the lender."
     },
     "lost": {
       "type": "token",
-      "description": "The book isn't coming back."
+      "description": "The item isn't coming back."
     },
     "itemKind": {
       "type": "string",
