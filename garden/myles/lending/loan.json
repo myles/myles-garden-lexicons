@@ -35,6 +35,11 @@
             "format": "datetime",
             "description": "When the item was handed over."
           },
+          "lentCondition": {
+            "type": "ref",
+            "ref": "garden.myles.lending.defs#itemCondition",
+            "description": "The item's condition when it was handed over. Copied from the item so later edits to it don't change the record."
+          },
           "dueAt": {
             "type": "string",
             "format": "datetime",
