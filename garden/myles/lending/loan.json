@@ -1,0 +1,71 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.lending.loan",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "The lender's side of a loan, from their answer to a request through to its return. Written to the lender's repo, so it's public: anyone can see who borrowed what.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["item", "borrower", "status", "createdAt"],
+        "properties": {
+          "item": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "AT-URI of the garden.myles.lending.item being lent. Must be in the same repo as this loan."
+          },
+          "borrower": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the person borrowing the item. When request is set, must match the request's author."
+          },
+          "request": {
+            "type": "ref",
+            "ref": "com.atproto.repo.strongRef",
+            "description": "The garden.myles.lending.request this loan answers, if any. Set it when status is declined."
+          },
+          "status": {
+            "type": "ref",
+            "ref": "garden.myles.lending.defs#loanStatus",
+            "description": "Where the loan is now. If it disagrees with the timestamps, status wins."
+          },
+          "lentAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the item was handed over."
+          },
+          "lentCondition": {
+            "type": "ref",
+            "ref": "garden.myles.lending.defs#itemCondition",
+            "description": "The item's condition when it was handed over. Copied from the item so later edits to it don't change the record."
+          },
+          "dueAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the item should come back."
+          },
+          "returnedAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the item came back."
+          },
+          "returnedCondition": {
+            "type": "ref",
+            "ref": "garden.myles.lending.defs#itemCondition",
+            "description": "The item's condition when it came back. Compare with lentCondition to spot wear from the loan."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "datetime",
+            "description": "When the loan last changed, e.g. its status."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$type": "garden.myles.lending.item",
+  "condition": "garden.myles.lending.defs#good",
+  "createdAt": "2026-11-20T15:02:11.204Z",
+  "kind": "garden.myles.lending.defs#book",
+  "loanDays": 21,
+  "name": "The Left Hand of Darkness",
+  "note": "Signed copy, please be gentle.",
+  "subject": "at://did:plc:7lenderexample2222222222/org.example.book/3m6qvj7b2ws2c"
+}

@@ -1,0 +1,37 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.lending.request",
+  "defs": {
+    "main": {
+      "type": "record",
+      "description": "A request to borrow an item. Written to the borrower's repo, so it's public.",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["item", "lender", "createdAt"],
+        "properties": {
+          "item": {
+            "type": "string",
+            "format": "at-uri",
+            "description": "AT-URI of the garden.myles.lending.item being requested. Its authority must be the lender's DID, not a handle."
+          },
+          "lender": {
+            "type": "string",
+            "format": "did",
+            "description": "DID of the person who owns the item. Must match the authority of item."
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300,
+            "description": "Optional note to the lender. Public, like the rest of the record."
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "datetime"
+          }
+        }
+      }
+    }
+  }
+}

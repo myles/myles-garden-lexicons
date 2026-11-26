@@ -1,0 +1,105 @@
+{
+  "lexicon": 1,
+  "id": "garden.myles.lending.defs",
+  "description": "Shared definitions for garden.myles.lending records.",
+  "defs": {
+    "loanStatus": {
+      "type": "string",
+      "description": "Where a loan is in its lifecycle.",
+      "knownValues": [
+        "garden.myles.lending.defs#approved",
+        "garden.myles.lending.defs#declined",
+        "garden.myles.lending.defs#cancelled",
+        "garden.myles.lending.defs#active",
+        "garden.myles.lending.defs#returned",
+        "garden.myles.lending.defs#lost"
+      ]
+    },
+    "approved": {
+      "type": "token",
+      "description": "The lender has agreed to the loan. The item hasn't been handed over yet."
+    },
+    "declined": {
+      "type": "token",
+      "description": "The lender has turned down the request. The item won't be lent."
+    },
+    "cancelled": {
+      "type": "token",
+      "description": "Called off before the item was handed over, e.g. the borrower withdrew their request."
+    },
+    "active": {
+      "type": "token",
+      "description": "The item is with the borrower."
+    },
+    "returned": {
+      "type": "token",
+      "description": "The item is back with the lender."
+    },
+    "lost": {
+      "type": "token",
+      "description": "The item isn't coming back."
+    },
+    "itemKind": {
+      "type": "string",
+      "description": "What sort of thing an item is.",
+      "knownValues": [
+        "garden.myles.lending.defs#book",
+        "garden.myles.lending.defs#boardGame",
+        "garden.myles.lending.defs#videoGame",
+        "garden.myles.lending.defs#film",
+        "garden.myles.lending.defs#music",
+        "garden.myles.lending.defs#tool",
+        "garden.myles.lending.defs#other"
+      ]
+    },
+    "book": {
+      "type": "token",
+      "description": "A book, comic or zine."
+    },
+    "boardGame": {
+      "type": "token",
+      "description": "A board, card or tabletop game."
+    },
+    "videoGame": {
+      "type": "token",
+      "description": "A physical copy of a video game."
+    },
+    "film": {
+      "type": "token",
+      "description": "A film or TV series on disc."
+    },
+    "music": {
+      "type": "token",
+      "description": "A record, CD or tape."
+    },
+    "tool": {
+      "type": "token",
+      "description": "A tool or piece of equipment."
+    },
+    "other": {
+      "type": "token",
+      "description": "Anything else."
+    },
+    "itemCondition": {
+      "type": "string",
+      "description": "Rough physical condition.",
+      "knownValues": [
+        "garden.myles.lending.defs#likeNew",
+        "garden.myles.lending.defs#good",
+        "garden.myles.lending.defs#worn"
+      ]
+    },
+    "likeNew": {
+      "type": "token",
+      "description": "Barely used."
+    },
+    "good": {
+      "type": "token",
+      "description": "Some wear, nothing missing."
+    },
+    "worn": {
+      "type": "token",
+      "description": "Well loved. Still works."
+    }
+  }
+}

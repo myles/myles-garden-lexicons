@@ -1,0 +1,7 @@
+{
+  "$type": "garden.myles.lending.request",
+  "createdAt": "2026-11-21T18:44:05.377Z",
+  "item": "at://did:plc:7lenderexample2222222222/garden.myles.lending.item/3m6qvjlrvhk2a",
+  "lender": "did:plc:7lenderexample2222222222",
+  "message": "Could I borrow this over the holidays?"
+}

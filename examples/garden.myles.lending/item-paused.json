@@ -1,0 +1,8 @@
+{
+  "$type": "garden.myles.lending.item",
+  "condition": "garden.myles.lending.defs#worn",
+  "createdAt": "2026-11-20T15:10:42.918Z",
+  "isLendable": false,
+  "kind": "garden.myles.lending.defs#boardGame",
+  "name": "Wingspan"
+}
