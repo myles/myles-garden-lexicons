@@ -50,6 +50,11 @@
             "format": "datetime",
             "description": "When the item came back."
           },
+          "returnedCondition": {
+            "type": "ref",
+            "ref": "garden.myles.lending.defs#itemCondition",
+            "description": "The item's condition when it came back. Compare with lentCondition to spot wear from the loan."
+          },
           "createdAt": {
             "type": "string",
             "format": "datetime"
