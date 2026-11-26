@@ -4,7 +4,7 @@
   "defs": {
     "main": {
       "type": "record",
-      "description": "An approved loan of an item. Written to the lender's repo.",
+      "description": "The lender's side of a loan, from their answer to a request through to its return. Written to the lender's repo.",
       "key": "tid",
       "record": {
         "type": "object",
