@@ -1,0 +1,14 @@
+{
+  "$type": "garden.myles.aster.chart",
+  "name": "Mum",
+  "bornAt": "2026-03-02T09:15:00Z",
+  "houseSystem": "placidus",
+  "isBirthTimeKnown": true,
+  "location": {
+    "$type": "community.lexicon.location.geo",
+    "latitude": "45.4215",
+    "longitude": "-75.6972"
+  },
+  "timeZone": "America/Toronto",
+  "updatedAt": "2026-11-27T16:30:00.000Z"
+}

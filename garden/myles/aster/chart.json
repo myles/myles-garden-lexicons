@@ -4,8 +4,8 @@
   "defs": {
     "main": {
       "type": "record",
-      "description": "The author's own birth chart calculation inputs.",
-      "key": "literal:self",
+      "description": "Birth chart calculation inputs. The record key 'self' holds the author's own chart; any other key (a TID) holds someone else's.",
+      "key": "any",
       "record": {
         "type": "object",
         "required": [
@@ -17,6 +17,12 @@
           "updatedAt"
         ],
         "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 640,
+            "maxGraphemes": 64,
+            "description": "Who the chart belongs to, e.g. 'Mum'. Usually omitted on the 'self' record."
+          },
           "bornAt": {
             "type": "string",
             "format": "datetime",
