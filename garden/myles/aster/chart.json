@@ -20,7 +20,7 @@
           "bornAt": {
             "type": "string",
             "format": "datetime",
-            "description": "Birth instant; local noon if time is unknown or omitted."
+            "description": "Birth instant. When isBirthTimeKnown is false, local noon in timeZone."
           },
           "isBirthTimeKnown": {
             "type": "boolean",
@@ -40,7 +40,7 @@
           },
           "houseSystem": {
             "type": "string",
-            "enum": [
+            "knownValues": [
               "placidus",
               "koch",
               "wholeSign",
